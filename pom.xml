@@ -23,6 +23,37 @@
 
   <build>
     <plugins>
+<plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>build-helper-maven-plugin</artifactId>
+    <executions>
+        <execution>
+            <id>add-source</id>
+            <phase>generate-sources</phase>
+            <goals>
+                <goal>add-source</goal>
+            </goals>
+            <configuration>
+                <sources>
+                    <source>src/main/scala</source>
+                </sources>
+            </configuration>
+        </execution>
+        <execution>
+            <id>add-test-source</id>
+            <phase>generate-sources</phase>
+            <goals>
+                <goal>add-test-source</goal>
+            </goals>
+            <configuration>
+                <sources>
+                    <source>src/test/scala</source>
+                </sources>
+            </configuration>
+        </execution>
+    </executions>
+
+</plugin>
 
       <plugin>
         <groupId>org.scala-tools</groupId>
@@ -36,12 +67,13 @@
           </execution>
         </executions>
       </plugin>
-
+<!--
       <plugin>
         <groupId>org.scalaxb</groupId>
         <artifactId>scalaxb-maven-plugin</artifactId>
         <configuration>
           <packageName>uy.com.dgi</packageName>
+	 <outputDirectory>src/main/scala</outputDirectory>
         </configuration>
         <executions>
           <execution>
@@ -52,7 +84,7 @@
           </execution>
         </executions>
       </plugin>
-
+-->
     </plugins>
   </build>
 
